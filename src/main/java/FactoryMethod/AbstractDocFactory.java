@@ -1,7 +1,7 @@
 package FactoryMethod;
 
 
-public class AbstractDocFactory {
+public abstract class AbstractDocFactory {
     protected static Doc_interface createdoc(String variant) {
         switch (variant) {
             case "ZIP":
