@@ -4,71 +4,72 @@ import javax.naming.InsufficientResourcesException;
 import java.util.ArrayList;
 
 public interface BoiengInterface {
-
+    public ArrayList<Integer> getAvailableseats();
+    public ArrayList<Integer> getBookedseats();
+    public int getTotalseats();
+    public void setter(int totalseats);
+    public void welcome();
 }
+
 
 
 class BoiengDomestic implements BoiengInterface {
     private int totalseats;
-    private int[] bookedseats;
-    private int[] availableseats;
+    private ArrayList<Integer> availableseats = new ArrayList<>(totalseats);
+    private ArrayList<Integer> bookedseats = new ArrayList<>(totalseats);
+
+    public ArrayList<Integer> getAvailableseats() {
+        return availableseats;
+    }
+
+    public ArrayList<Integer> getBookedseats() {
+        return bookedseats;
+    }
 
     public int getTotalseats() {
         return totalseats;
     }
 
-    public int[] getBookedseats() {
-        return bookedseats;
-    }
-
-    public void setTotalseats(int totalseats) {
+    public void setter(int totalseats){
         this.totalseats = totalseats;
-    }
-
-    public int[] getAvailableseats() {
-        return availableseats;
-    }
-
-    public BoiengDomestic(int totalseats) {
-        this.bookedseats = new int[totalseats];
-        this.availableseats = new int[totalseats];
-        for (int i = 0; i < totalseats; i++) {
-            this.availableseats[i] = i + 1;
+        for(int i = 1 ; i<totalseats ;i++){
+            this.availableseats.add(i);
+            this.bookedseats.add(i);
         }
-
-
     }
-
+    public void welcome(){
+        System.out.println("Welcome to BoeingDomestic... ");
+    }
 }
 
 
     class BoiengInternational implements BoiengInterface {
         private int totalseats;
-        private int[] bookedseats;
-        private int[] availableseats;
+        private ArrayList<Integer> availableseats = new ArrayList<>(totalseats);
+        private ArrayList<Integer> bookedseats = new ArrayList<>(totalseats);
+
+
+        public ArrayList<Integer> getAvailableseats() {
+            return availableseats;
+        }
+
+        public ArrayList<Integer> getBookedseats() {
+            return bookedseats;
+        }
 
         public int getTotalseats() {
             return totalseats;
         }
 
-        public int[] getBookedseats() {
-            return bookedseats;
-        }
-
-        public void setTotalseats(int totalseats) {
+        public void setter(int totalseats){
             this.totalseats = totalseats;
-        }
-
-        public int[] getAvailableseats() {
-            return availableseats;
-        }
-
-        public BoiengInternational(int totalseats) {
-            this.bookedseats = new int[totalseats];
-            this.availableseats = new int[totalseats];
-            for (int i = 0; i < totalseats; i++) {
-                this.availableseats[i] = i + 1;
+            for(int i = 1 ; i<totalseats ;i++){
+                this.availableseats.add(i);
+                this.bookedseats.add(i);
             }
+        }
 
+        public void welcome(){
+            System.out.println("Welcome to BoeingInternational... ");
         }
     }

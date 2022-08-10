@@ -11,9 +11,9 @@ class airbustype implements typeFlight{
         public AirbusInterface createAirbusFlight(FlightType type) {
             switch (type){
                 case DOMESTIC:
-                    return new AirDomestic(20);
+                    return new AirDomestic();
                 case INTERNATIONAL:
-                    return new AirInternational(20);
+                    return new AirInternational();
             }
             return null;
         }
@@ -36,9 +36,9 @@ class Boeingtype implements typeFlight {
     public BoiengInterface createBoiengFlight(FlightType type) {
         switch (type) {
             case DOMESTIC:
-                return new BoiengDomestic(20);
+                return new BoiengDomestic();
             case INTERNATIONAL:
-                return new BoiengInternational(20);
+                return new BoiengInternational();
         }
         return null;
     }
